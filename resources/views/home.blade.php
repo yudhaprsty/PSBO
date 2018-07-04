@@ -13,21 +13,31 @@
 @endsection
 
 @section('banner')
-  <!---->
-  <div data-vide-bg="video/video">
-      <div class="container">
-    		<div class="banner-info">
-    			<h3>It is a long established fact that a reader will be distracted by
-    			the readable </h3>
-    			<div class="search-form">
-    				<form action="#" method="post">
-    					<input type="text" placeholder="Search..." name="Search...">
-    					<input type="submit" value=" " >
-    				</form>
-    			</div>
-    		</div>
-      </div>
-  </div>
+<!-- Carousel
+	================================================== -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				 <a href="/home"><img class="first-slide" src="images/bbaa1.jpg" alt="First slide" ></a>
+
+			</div>
+			<div class="item">
+				<a href="/home"> <img class="second-slide " src="images/ba1.jpg" alt="Second slide"></a>
+
+			</div>
+			<div class="item">
+				 <a href="/home"><img class="third-slide " src="images/ba2.jpg" alt="Third slide"></a>
+
+			</div>
+		</div>
+
+	</div><!-- /.carousel --><br>
 
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
   <script src="js/jquery.vide.min.js"></script>
@@ -54,9 +64,9 @@
 
 					@foreach ($produks as $produks)
           <div class="col-md-3 m-wthree">
-            <div class="col-m">
+            <div class="col-m" style="margin-bottom: 30px">
               <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
-								<img src="/images/produk/{{ $produks -> gambar_produk }}" class="img-responsive" alt="">
+								<img src="/images/produk/{{ $produks -> gambar_produk }}" class="img-responsive" alt="" style="width: 180px; height: 180px;">
                 <div class="offer"><p><span>Offer</span></p></div>
               </a>
 
@@ -79,7 +89,6 @@
           </div>
 					@endforeach
           <div class="clearfix"></div>
-
         </div>
       </div>
     </div>

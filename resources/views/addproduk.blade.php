@@ -38,11 +38,20 @@
 							<div class="clearfix"></div>
 						</div>
 
-						<div class="key">
-							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- <div class="key">
 							<input  type="text" value="Varian" name="varian" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Varian';}" required="">
 							<div class="clearfix"></div>
-						</div>
+						</div> -->
+						<tr>
+							<td>
+								<select name="varian" class="form-control">
+									<option value="Seeds">Seeds</option>
+									<option value="Tools">Tools</option>
+									<option value="Plants">Plant</option>
+								</select>
+							<td>
+						</tr>
+<br>
 
             <div>
 							<input  type="file" name="gambar_produk" required autofocus>

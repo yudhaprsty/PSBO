@@ -1,92 +1,22 @@
 @extends('layouts.master')
 
 @section('header')
-  <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-    <ul class="nav navbar-nav ">
-      <li><a href="/wishlist" class="hyper "><span>Home</span></a></li>
-
-      <li class="dropdown ">
-        <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Seeds<b class="caret"></b></span></a>
-        <ul class="dropdown-menu multi">
-          <div class="row">
-
-            <div class="col-sm-3">
-              <ul class="multi-column-dropdown">
-                <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Water & Beverages</a></li>
-                <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Fruits & Vegetables</a></li>
-                <li><a href="kitchen.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Staples</a></li>
-                <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Branded Food</a></li>
-              </ul>
-            </div>
-
-            <div class="col-sm-3 w3l">
-              <a href="kitchen.html"><img src="images/me.png" class="img-responsive" alt=""></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-          </div>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Tools<b class="caret"></b></span></a>
-        <ul class="dropdown-menu multi">
-          <div class="row">
-
-            <div class="col-sm-3">
-              <ul class="multi-column-dropdown">
-                <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ayurvedic </a></li>
-                <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Baby Care</a></li>
-                <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
-                <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
-              </ul>
-            </div>
-
-            <div class="col-sm-3 w3l">
-              <a href="care.html"><img src="images/me1.png" class="img-responsive" alt=""></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-          </div>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Plants<b class="caret"></b></span></a>
-        <ul class="dropdown-menu multi">
-          <div class="row">
-
-            <div class="col-sm-3">
-              <ul class="multi-column-dropdown">
-                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
-                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
-                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
-              </ul>
-            </div>
-
-            <div class="col-sm-3 w3l">
-              <a href="hold.html"><img src="images/me2.png" class="img-responsive" alt=""></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-          </div>
-        </ul>
-      </li>
-
-      <li><a href="/about" class="hyper"><span>About Us</span></a></li>
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+  <ul class="nav navbar-nav ">
+    <li><a href="/home" class="hyper "><span>Home</span></a></li>
+    <li><a href="/seeds" class="hyper "><span>Seeds</span></a></li>
+    <li><a href="/tools" class="hyper "><span>Tools</span></a></li>
+    <li><a href="/plants" class="hyper "><span>Plants</span></a></li>
+    <li><a href="/about" class="hyper"><span>About Us</span></a></li>
     </ul>
-  </div>
+</div>
 @endsection
 
 @section('content')
 <div class="banner-top">
 	<div class="container">
-		<h3 >Wishlist</h3>
-		<h4><a href="index.html">Home</a><label>/</label>Wishlist</h4>
+		<h3 >Cart</h3>
+		<h4><a href="index.html">Home</a><label>/</label>Cart</h4>
 		<div class="clearfix"> </div>
 	</div>
 </div>
@@ -95,7 +25,7 @@
 		<div class="check-out">
 		<div class="container">
 	 <div class="spec ">
-				<h3>Wishlist</h3>
+				<h3>Cart</h3>
 					<div class="ser-t">
 						<b></b>
 						<span><i></i></span>
@@ -134,7 +64,7 @@
 
 			<th class="t-head">Purchase</th>
 		  </tr>
-      
+
     @foreach($wishlist as $wishlist)
       @php($produk = \App\Produk::find($wishlist->id_product))
 		  <tr class="cross">
@@ -150,12 +80,12 @@
 			 </td>
 			<td class="t-data">{{$produk->harga_produk}}</td>
 			<td class="t-data"><div class="quantity">
-      <!-- <div class="t-data">1</div> -->
-								<div class="quantity-select">
+      <div class="t-data">1</div>
+								<!-- <div class="quantity-select">
 									<div class="entry value-minus">&nbsp;</div>
 										<div class="entry value"><span class="span-1">1</span></div>
 									<div class="entry value-plus active">&nbsp;</div>
-								</div>
+								</div> -->
 							</div>
 
 			</td>

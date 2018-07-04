@@ -17,7 +17,7 @@
   <div class="check-out">
   <div class="container">
  <div class="spec ">
-      <h3>Status Pesanan</h3>
+      <h3>Sales History</h3>
         <div class="ser-t">
           <b></b>
           <span><i></i></span>

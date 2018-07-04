@@ -28,7 +28,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+     protected function redirectTo()
+     {
+         if (auth()->user()->category == NULL) {
+             return '/home';
+         }
+         return '/penjual';
+     }
 
     /**
      * Create a new controller instance.
@@ -67,6 +73,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone' => $data['phone'],
+            'address' => $data['address']
         ]);
     }
 }

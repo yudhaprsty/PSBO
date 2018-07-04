@@ -12,9 +12,9 @@
   <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
   function hideURLbar(){ window.scrollTo(0,1); } </script>
   <!-- //for-mobile-apps -->
-  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <link href="{{ URL::asset('css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
   <!-- Custom Theme files -->
-  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <link href="{{ URL::asset('css/style.css') }}" rel='stylesheet' type='text/css' />
   <!-- js -->
      <script src="js/jquery-1.11.1.min.js"></script>
   <!-- //js -->
@@ -30,9 +30,9 @@
   	});
   </script>
   <!-- start-smoth-scrolling -->
-  <link href="css/font-awesome.css" rel="stylesheet">
-  <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href="{{ URL::asset('css/font-awesome.css') }}" rel="stylesheet">
+  <link href='{{ URL::asset('//fonts.googleapis.com/css?family=Montserrat:400,700') }}' rel='stylesheet'type='text/css'>
+  <link href='{{ URL::asset('//fonts.googleapis.com/css?family=Noto+Sans:400,700') }}' rel='stylesheet' type='text/css'>
   <!--- start-rate---->
   <script src="js/jstarbox.js"></script>
   	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,10 +71,36 @@
 
   			<div class="head-t">
   				<ul class="card">
-  					<li><a href="/Login" ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
-  					<li><a href="/Register" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
-            <li><a href="wishlist.html" ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
-  				</ul>
+            @guest
+                <li><a href="{{ route('login') }}"><i class="fa fa-user" aria-hidden="true"></i>{{ __('Login') }}</a></li>
+                <li><a href="{{ route('register') }}"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{ __('Register') }}</a></li>
+  					<!-- <li><a href="login" ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li> -->
+  					<!-- <li><a href="register" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li> -->
+            @else
+                    <li>
+                    <a href="/profil"><i class="fa fa-user" aria-hidden="true"></i>
+                        {{ Auth::user()->name }}
+                    </a>
+                  </li>
+
+                  <li><a href="/wishlist" ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
+                  <li><a href="/pesanan" ><i class="fa fa-ship" aria-hidden="true"></i>Orders</a></li>
+					        <li><a href="/order" ><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
+                      <li><a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+
+
+            @endguest
+
   			</div>
 
   			<div class="nav-top">
@@ -93,9 +119,9 @@
 
           </nav>
 
-          <div class="cart" >
+          <!-- <div class="cart" >
             <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
-          </div>
+          </div> -->
 
           <div class="clearfix"></div>
         </div>
@@ -114,36 +140,40 @@
   		<div class="col-md-3 footer-grid ">
   			<h3>Menu</h3>
   			<ul>
-  				<li><a href="index.html">Home</a></li>
-  				<li><a href="kitchen.html">Seeds</a></li>
-  				<li><a href="care.html">Tools</a></li>
-  				<li><a href="hold.html">Plants</a></li>
-  				<li><a href="contact.html">About Us</a></li>
+  				<li><a href="/home">Home</a></li>
+  				<li><a href="/seeds">Seeds</a></li>
+  				<li><a href="/tools">Tools</a></li>
+  				<li><a href="/plants">Plants</a></li>
+  				<li><a href="/about">About Us</a></li>
   			</ul>
   		</div>
 
   		<div class="col-md-3 footer-grid ">
   			<h3>Customer Services</h3>
   			<ul>
-  				<li><a href="terms.html">Terms & Conditions</a></li>
-  				<li><a href="faqs.html">FAQ</a></li>
-  				<li><a href="contact.html">Contact</a></li>
+  				<li><a href="/term">Terms & Conditions</a></li>
+  				<li><a href="/faqs">FAQ</a></li>
+  				<li><a href="/contact">Contact</a></li>
   			</ul>
   		</div>
 
   		<div class="col-md-3 footer-grid">
   			<h3>My Account</h3>
   			<ul>
-  				<li><a href="login.html">Login</a></li>
-  				<li><a href="register.html">Register</a></li>
-  				<li><a href="wishlist.html">Wishlist</a></li>
+          @guest
+    				<li><a href="/login">Login</a></li>
+    				<li><a href="/register">Register</a></li>
+          @else
+            <li><a href="/wishlist">Wishlist</a></li>
+					  <li><a href="/shipping" >Shipping</a></li>
+          @endguest
   			</ul>
   		</div>
 
   		<div class="clearfix"></div>
 
   		<div class="footer-bottom">
-  			<h2 ><a href="index.html">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h2>
+  			<h2 ><a href="/home">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h2>
   			<p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
 
         <ul class="social-fo">

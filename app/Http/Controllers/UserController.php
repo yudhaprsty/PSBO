@@ -8,6 +8,10 @@ use Auth;
 
 class UserController extends Controller
 {
+    public function profile(){
+      return view('profil');
+    }
+    
     public function store(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();

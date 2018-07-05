@@ -18,45 +18,43 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductController@index');
+// Route::get('/home/{id}','ProductController@add')->name('home');
 
-Route::get('/home', 'produkController@index');
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Route::get('/checkout/{id}', 'CheckoutController@index')-> name('checkout');
 Route::get('/checkout/{id}/status', 'CheckoutController@status')-> name('order');
-Route::get('/order', 'CheckoutController@show')->name('gege');
-//ubah status terima
-Route::get('/order/{id}', 'CheckoutController@ubah_status_terima');
 
-//
-Route::get('/seeds', function () { return view('seeds'); });
-Route::get('/pesanan', "CheckoutController@showpesanan");
-Route::get('/tools', function () { return view('tools'); });
-Route::get('/plants', function () { return view('plants'); });
+Route::get('/order', 'CheckoutController@show');
+//ubah status terima
+Route::get('/order/{id}', 'CheckoutController@statusAcc');
+
+Route::get('/sales', 'CheckoutController@showOrder');
+Route::post('/sales/{id}','CheckoutController@changeStatus')->name('changeStatus');
+
+Route::get('/seeds', 'ProductController@showSeeds');
+Route::get('/tools', 'ProductController@showTools');
+Route::get('/plants', 'ProductController@showPlants');
 Route::get('/about', function () { return view('about'); });
 
-//ubah status
-Route::post('/pesanan/{id}','CheckoutController@ubah_status')->name('ubah_status');
-Route::get('/wishlist', 'ProdukController@lihat');
+Route::get('/wishlist', 'ProductController@showWishlist');
+Route::delete('/wishlist/{wishlist}/delete', 'CheckoutController@destroy')->name('delete.wishlist');
 
 Route::post('/profil', 'UserController@store');
+Route::get('/profil', 'ProductController@show')-> name('profil');
 
-Route::get('/profil', 'produkController@show')-> name('profil');
+Route::get('/product/{id}/edit', 'ProductController@edit');
+Route::put('/product/{id}', 'ProductController@update');
+Route::post('/product/{id}', 'ProductController@add');
+Route::delete('/product/{product}/delete', 'ProductController@destroy')->name('delete.product');
+Route::get('/product/{id}', 'ProductController@display')->name('product');
 
-Route::get('/produk/{id}/edit', 'produkController@edit');
+Route::get('/add/{id}','ProductController@add')->name('home');
+Route::get('/add', function () {return view('addproduct'); });
+Route::post('/add', 'ProductController@store');
 
-Route::put('/produk/{id}', 'produkController@update');
-Route::post('/produk/{id}', 'produkController@add');
-
-Route::delete('/produk/{product}/delete', 'produkController@destroy')->name('delete.product');
-
-Route::get('/home/{id}','ProdukController@add')->name('home');
-
-Route::get('/produk/{id}', 'produkController@display')->name('product');
-Route::get('/add/{id}','ProdukController@add')->name('add');
-Route::get('/penjual', function () {return view('penjual'); });
-Route::get('/add', function () {return view('addproduk'); });
-Route::post('/add', 'ProdukController@store');
 //admin
 Route::get('/admin', function () {
     return view('admin');

@@ -9,5 +9,7 @@ class Wishlist extends Model
     protected $table = 'Wishlist';
    	public $timestamps = false;
 
-   	protected $fillable = ['id', 'price', 'quantity', 'id_product', 'status_pesanan', 'checkout_status'];
+   	protected $fillable = [
+      'id', 'price', 'quantity', 'id_product', 'status', 'checkout_status', 'id_customer'
+    ];
 }

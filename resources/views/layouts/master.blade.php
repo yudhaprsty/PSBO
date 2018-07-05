@@ -35,7 +35,7 @@
   <link href='{{ URL::asset('//fonts.googleapis.com/css?family=Noto+Sans:400,700') }}' rel='stylesheet' type='text/css'>
   <!--- start-rate---->
   <script src="js/jstarbox.js"></script>
-  	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+  	<link rel="stylesheet" href="{{ URL::asset('css/jstarbox.css') }}" type="text/css" media="screen" charset="utf-8" />
   		<script type="text/javascript">
   			jQuery(function() {
   			jQuery('.starbox').each(function() {
@@ -66,7 +66,7 @@
   		<div class="container">
 
   			<div class="logo">
-  				<h1><a href="/">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h1>
+  				<h1><a href="/home">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h1>
   			</div>
 
   			<div class="head-t">
@@ -83,9 +83,9 @@
                     </a>
                   </li>
 
-                  <li><a href="/wishlist" ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
-                  <li><a href="/pesanan" ><i class="fa fa-ship" aria-hidden="true"></i>Orders</a></li>
-					        <li><a href="/order" ><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
+                  <li><a href="/wishlist" ><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a></li>
+                  <li><a href="/order" ><i class="fa fa-ship" aria-hidden="true"></i>My Order</a></li>
+					        <li><a href="/sales" ><i class="fa fa-file-text-o" aria-hidden="true"></i>Sales History</a></li>
                       <li><a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -97,8 +97,6 @@
                             @csrf
                         </form>
                     </li>
-
-
             @endguest
 
   			</div>
@@ -163,9 +161,8 @@
           @guest
     				<li><a href="/login">Login</a></li>
     				<li><a href="/register">Register</a></li>
-          @else
-            <li><a href="/wishlist">Wishlist</a></li>
-					  <li><a href="/shipping" >Shipping</a></li>
+            @else
+            <li><a href="/profil" >{{ Auth::user()->name }}</a></li>
           @endguest
   			</ul>
   		</div>
@@ -173,9 +170,9 @@
   		<div class="clearfix"></div>
 
   		<div class="footer-bottom">
-  			<h2 ><a href="/home">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h2>
-  			<p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-
+  			<h2 ><a href="/">HYPO SHOP<span>The Best Hydroponic Shop</span></a></h2>
+        <br>
+        <br>
         <ul class="social-fo">
   				<li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
   				<li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -185,15 +182,15 @@
 
   			<div class=" address">
   				<div class="col-md-4 fo-grid1">
-  						<p><i class="fa fa-home" aria-hidden="true"></i>12K Street , 45 Building Road Canada.</p>
+  						<p><i class="fa fa-home" aria-hidden="true"></i>Departemen Ilmu Komputer</p>
   				</div>
 
   				<div class="col-md-4 fo-grid1">
-  						<p><i class="fa fa-phone" aria-hidden="true"></i>+1234 758 839 , +1273 748 730</p>
+  						<p><i class="fa fa-phone" aria-hidden="true"></i>+62 812 345 678</p>
   				</div>
 
   				<div class="col-md-4 fo-grid1">
-  					<p><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@example1.com</a></p>
+  					<p><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@hyposhop.com</a></p>
   				</div>
 
   				<div class="clearfix"></div>

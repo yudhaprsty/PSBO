@@ -37,6 +37,7 @@ class ProductController extends Controller
     $product = new Wishlist;
     $product->id_product = $id;
     $product->id_customer = Auth::User()->id;
+    $product->address = Auth::user()->address;
     $product->quantity = 1;
     $product->price = Product::find($id)->price;
     $product->id_user = Product::find($id)->id_user;

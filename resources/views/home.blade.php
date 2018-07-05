@@ -66,7 +66,7 @@
 	              </a>
 	              <div class="mid-1">
 	                <div class="women">
-	                  <h6><a href="single.html">{{ $product -> name }} </a></h6>
+	                  <h6><a href="/product/{{ $product -> id }}">{{ $product -> name }} </a></h6>
 	                </div>
 	                <div class="mid-2">
 										<p >Rp. <em class="item_price">{{ $product -> price }}</em></p>

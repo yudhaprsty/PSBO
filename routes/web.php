@@ -49,7 +49,7 @@ Route::get('/product/{id}/edit', 'ProductController@edit');
 Route::put('/product/{id}', 'ProductController@update');
 Route::post('/product/{id}', 'ProductController@add');
 Route::delete('/product/{product}/delete', 'ProductController@destroy')->name('delete.product');
-Route::get('/product/{id}', 'ProductController@display')->name('product');
+Route::get('/product/{id}', 'ProductController@showProduct')->name('product');
 
 Route::get('/add/{id}','ProductController@add')->name('home');
 Route::get('/add', function () {return view('addproduct'); });

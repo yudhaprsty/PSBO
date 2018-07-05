@@ -35,11 +35,11 @@
 				<br>
 				<strong>Name Of Product</strong><span style="padding-left:20px;"> : {{ $product -> name }}</span>
 				<br>
-				<strong>Price</strong><span style="padding-left:82px;"> : Rp. {{ $product -> price }}</span>
+				<strong>Price</strong><span style="padding-left:106px;"> : Rp. {{ $product -> price }}</span>
 				<br>
-				<strong>Quantity</strong><span style="padding-left:54px;"> : 1 </span>
+				<strong>Quantity</strong><span style="padding-left:79px;"> : 1 </span>
 				<br>
-				<strong>Rekening Number</strong><span style="padding-left:62px;"> : 0897-0213-9876-4567 a/n HypoShop</span>
+				<strong>Rekening Number</strong><span style="padding-left:14px;"> : 0897-0213-9876-4567 a/n HypoShop</span>
 				<br><br><br>
 				<style>
 				.city {
@@ -51,7 +51,7 @@
 				<h4><strong>TOTAL</strong> </h4><br><h2 class="city"> Rp. {{ $product -> price }} </h2></span>
 				<br><br>
 				<strong> Alamat Pengiriman </strong><span style="padding-left:22px;"> :
-				<span style="padding-left:60px;"></span><p> {{ $product -> address }} </p>
+				<span style="padding-left:60px;"></span><p> {{ Auth::User()->address }} </p>
 				<br><br>
 				<div class="add">
 					 <a href="/checkout/{{ $wishlist->id }}/status" class="btn btn-danger my-cart-btn my-cart-b">Yes</a>

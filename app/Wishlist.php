@@ -10,6 +10,6 @@ class Wishlist extends Model
    	public $timestamps = false;
 
    	protected $fillable = [
-      'id', 'price', 'quantity', 'id_product', 'status', 'checkout_status', 'id_customer'
+      'id', 'price', 'quantity', 'id_product', 'status', 'checkout_status', 'id_customer', 'address'
     ];
 }

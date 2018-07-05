@@ -40,7 +40,7 @@
     <tr class="cross">
     <td class="t-data">
       <div class="women">
-        <h6><a href="single.html">{{ $product -> name }}</a></h6>
+        <h6><a href="product/{{ $product -> id }}">{{ $product -> name }}</a></h6>
       </div>
     </td>
 
@@ -54,10 +54,7 @@
 
     <td class="t-data">
       <div class="quantity">
-        <div class="t-data">Direktorat Kemahasiswaan IPB
-        	Jl. Dramaga Raya harus bahagia, Bogor, Jawa Barat 30128
-        	Phone: (0321) 359590
-        	Email: ditmawa@apps.ipb.ac.id</div>
+        <div class="t-data">{{ Auth::User()->address }}</div>
       </div>
     </td>
 
